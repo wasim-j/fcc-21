@@ -14,8 +14,8 @@ module.exports = class {
     return this.input_valid_unix = /^-?[0-9]+$/.test(this.input);
   }
   unix_set(){
-    let date = new Date(parseInt(this.input));
-    this.unix = date.getTime() * 1000;
+    let date = new Date(parseInt(this.input) * 1000);
+    this.unix = date.getTime();
     this.utc = date.toUTCString();
   }
   invalid_set(){
