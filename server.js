@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 // /\/api\/timestamp\/.+/
 // . matches any single character except line terminators
 // + matches the preceding item x 1 or more times
+// * matches the preceding item x 0 or more times.
 app.get(/\/api\/timestamp\/.*/, (req, res) => {
   // () capturing group
   let input = /api\/timestamp\/(.*)/.exec(req.path)[1];
