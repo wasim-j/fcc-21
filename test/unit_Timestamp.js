@@ -7,17 +7,17 @@ const assert = chai.assert;
 
 const Timestamp = require('./../Timestamp');
 
-let valid_date_1 = "2016-11-20";
-let valid_date_2 = "December 17, 1995 03:24:00";
-let valid_date_3 = "1995-12-17T03:24:00";
-let valid_unix_1 = "1479663089000";
-let valid_unix_2 = "6479000";
-let valid_unix_3 = "9479666879";
-let invalid_date_1 = "jjdumuf";
-let invalid_date_2 = "frege";
-let invalid_date_3 = "gegeg";
-let invalid_date_4 = "egege";
-let invalid_date_5 = "ggegegt";
+let valid_date_1 = "2015-12-25";
+let valid_date_2 = "";
+let valid_date_3 = "";
+let valid_unix_1 = "1451001600";
+let valid_unix_2 = "1450137600";
+let valid_unix_3 = "";
+let invalid_date_1 = "nfhtrhrth";
+let invalid_date_2 = "";
+let invalid_date_3 = "";
+let invalid_date_4 = "";
+let invalid_date_5 = "";
 
 describe('Unit Test: Timestamp', () => {
   
@@ -25,16 +25,16 @@ describe('Unit Test: Timestamp', () => {
     it(`${valid_date_1}`, () => {
       let timestamp = new Timestamp(valid_date_1)
       timestamp.run();
-      assert.strictEqual(timestamp.utc, timestamp.utc);
-      assert.strictEqual(timestamp.unix, timestamp.unix);
+      assert.strictEqual(timestamp.utc, "Fri, 25 Dec 2015 00:00:00 GMT");
+      assert.strictEqual(timestamp.unix, 1451001600000);
     });
-    it(`${valid_date_2}`, () => {
+    it.skip(`${valid_date_2}`, () => {
       let timestamp = new Timestamp(valid_date_2)
       timestamp.run();
       assert.strictEqual(timestamp.utc, timestamp.utc);
       assert.strictEqual(timestamp.unix, timestamp.unix);
     });
-    it(`${valid_date_3}`, () => {
+    it.skip(`${valid_date_3}`, () => {
       let timestamp = new Timestamp(valid_date_3)
       timestamp.run();
       assert.strictEqual(timestamp.utc, timestamp.utc);
@@ -46,16 +46,16 @@ describe('Unit Test: Timestamp', () => {
     it(`${valid_unix_1}`, () => {
       let timestamp = new Timestamp(valid_unix_1)
       timestamp.run();
-      assert.strictEqual(timestamp.utc, timestamp.utc);
-      assert.strictEqual(timestamp.unix, timestamp.unix);
+      assert.strictEqual(timestamp.utc, "Fri, 25 Dec 2015 00:00:00 GMT");
+      assert.strictEqual(timestamp.unix, 1451001600000);
     });
     it(`${valid_unix_2}`, () => {
       let timestamp = new Timestamp(valid_unix_2)
       timestamp.run();
-      assert.strictEqual(timestamp.utc, timestamp.utc);
-      assert.strictEqual(timestamp.unix, timestamp.unix);
+      assert.strictEqual(timestamp.utc, "Tue, Dec 15 00:00:00 2015 GMT");
+      assert.strictEqual(timestamp.unix, 1450137600000);
     });
-    it(`${valid_unix_3}`, () => {
+    it.skip(`${valid_unix_3}`, () => {
       let timestamp = new Timestamp(valid_unix_3)
       timestamp.run();
       assert.strictEqual(timestamp.utc, timestamp.utc);
@@ -70,13 +70,13 @@ describe('Unit Test: Timestamp', () => {
       assert.strictEqual(timestamp.utc, "Invalid Date");
       assert.isNull(timestamp.unix);
     });
-    it(`${invalid_date_2}`, () => {
+    it.skip(`${invalid_date_2}`, () => {
       let timestamp = new Timestamp(invalid_date_2)
       timestamp.run();
       assert.strictEqual(timestamp.utc, "Invalid Date");
       assert.isNull(timestamp.unix);
     });
-    it(`${invalid_date_3}`, () => {
+    it.skip(`${invalid_date_3}`, () => {
       let timestamp = new Timestamp(invalid_date_3)
       timestamp.run();
       assert.strictEqual(timestamp.utc, "Invalid Date");
