@@ -15,9 +15,9 @@ app.get("/", (req, res) => {
 // /\/api\/timestamp\/.+/
 // . matches any single character except line terminators
 // + matches the preceding item x 1 or more times
-app.get(/\/api\/timestamp\/.+/, (req, res) => {
+app.get(/\/api\/timestamp\/.*/, (req, res) => {
   // () capturing group
-  let input = /api\/timestamp\/(.+)/.exec(req.path)[1];
+  let input = /api\/timestamp\/(.*)/.exec(req.path)[1];
   let timestamp = new Timestamp(input);
   timestamp.run();
   res.json({unix: timestamp.unix, utc: timestamp.utc});
