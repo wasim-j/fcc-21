@@ -11,15 +11,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// /api/timestamp/:date_string?
-// /\/api\/timestamp\/.+/
-// . matches any single character except line terminators
-// + matches the preceding item x 1 or more times
-// * matches the preceding item x 0 or more times.
-app.get(/\/api\/timestamp\/.*/, (req, res) => {
-  // () capturing group
-  let input = /api\/timestamp\/(.*)/.exec(req.path)[1];
-  let timestamp = new Timestamp(input);
+let api_route = "/api/timestamp/:date_string?";
+
+app.get( api_route, (req, res) => {
+  let timestamp = new Timestamp(req.params.date_string);
   timestamp.run();
   res.json({unix: timestamp.unix, utc: timestamp.utc});
 });
