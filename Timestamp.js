@@ -15,7 +15,7 @@ module.exports = class {
   }
   unix_set(){
     let date = new Date(parseInt(this.input) * 1000);
-    this.unix = date.getTime();
+    this.unix = date.getTime() / 1000;
     this.utc = date.toUTCString();
   }
   invalid_set(){
