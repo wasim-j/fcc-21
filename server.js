@@ -16,7 +16,8 @@ let api_route = "/api/timestamp/:date_string?";
 app.get( api_route, (req, res) => {
   let timestamp = new Timestamp(req.params.date_string);
   timestamp.run();
-  res.json({unix: timestamp.unix, utc: timestamp.utc});
+  let msg = (timestamp.error) ? {error: timestamp.error} : {unix: timestamp.unix, utc: timestamp.utc};
+  res.json(msg);
 });
 
 

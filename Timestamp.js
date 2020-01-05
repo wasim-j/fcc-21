@@ -19,7 +19,8 @@ module.exports = class {
     this.utc = date.toUTCString();
   }
   invalid_set(){
-    this.unix = null;
+    this.error = "Invalid Date",
+    this.unix = null,
     this.utc = "Invalid Date";
   }
   now_set(){
